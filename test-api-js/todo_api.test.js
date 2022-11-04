@@ -14,5 +14,19 @@ describe("todo api test suite", () => {
                         
                         return done();
                     })
-});
+    });
+
+    test("todoAdd /", async () => {
+        let record = {
+            "title": "Test",
+            "description": "Testing",
+            "done": false
+        }
+    const responses = await request(app).post("/addToDo")
+            .send(record)
+            expect(responses.body.length).toBe(4);
+            expect(responses.statusCode).toBe(200);
+    });
+
+
 });

@@ -11,6 +11,11 @@ app.get('/todolist', function (req, res) {
   res.json(todo_service.get_todos());
 })
 
+app.post('/todoAdd', function (req, res) {
+  let todo_service = new todoservice();
+  res.json(todo_service.add_todo(req));
+})
+
 
 
 // Add more api calls here for each requirement
