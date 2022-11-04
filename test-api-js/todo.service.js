@@ -5,11 +5,11 @@ class todoservice{
             "description": "D1",
             "done": false
         },{
-            "title": "T1",
+            "title": "T2",
             "description": "D1",
             "done": false
         },{
-            "title": "T1",
+            "title": "T3",
             "description": "D1",
             "done": false
         }]
@@ -28,13 +28,19 @@ class todoservice{
     }
 
     delete_todo(request){
-        const index = this.todo_data.todo.findIndex(key => key.title === request.params.id);
+        console.log('request.params.title---', request.params.title)
+        const index = this.todo_data.todo.findIndex(key => key.title == request.params.title);
         this.todo_data.todo.splice(index,1);
         return this.todo_data.todo;
     }
 
-    update_todo(id, todo){
-        // Your code here
+    update_todo(request) {
+        this.todo_data.todo.find(data => {
+            if (data.title == request.params.title){
+                data.description=request.body.description
+            }
+        })
+        return this.todo_data.todo
     }
 }
 

@@ -16,6 +16,16 @@ app.post('/todoAdd', function (req, res) {
   res.json(todo_service.add_todo(req));
 })
 
+app.delete('/todoDelete/:title', function (req, res) {
+  let todo_service = new todoservice();
+  res.json(todo_service.delete_todo(req));
+})
+
+app.put('/todoUpdate/:title', function (req, res) {
+  let todo_service = new todoservice();
+  res.json(todo_service.update_todo(req));
+})
+
 
 
 // Add more api calls here for each requirement
