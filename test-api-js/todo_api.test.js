@@ -22,8 +22,7 @@ describe("todo api test suite", () => {
             "description": "Testing",
             "done": false
         }
-    const responses = await request(app).post("/addToDo")
-            .send(record)
+    const responses = await request(app).post("/todoAdd").send(record)
             expect(responses.body.length).toBe(4);
             expect(responses.statusCode).toBe(200);
     });
